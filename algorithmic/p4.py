@@ -1,3 +1,7 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+
 def input_numbers_series() -> list:
     input_num = 0
     input_number_list = []
@@ -34,4 +38,10 @@ def show_chosen_numbers_series_details() -> None:
         print("it seems like you didn't entered numbers yet")
 
 
-show_chosen_numbers_series_details()
+def show_chosen_numbers_graph(numbers_list: list) -> None:
+    ypoints = np.array(numbers_list)
+    plt.plot(ypoints, marker='o')
+    plt.show()
+
+
+show_chosen_numbers_graph(input_numbers_series())
