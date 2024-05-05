@@ -3,7 +3,7 @@ def is_polyndrom(text: str) -> bool:
 
 
 def is_half_text_sorted(text: str) -> bool:
-    half_text = text[:int(len(text) / 2) + 1]
+    half_text = text[:len(text) // 2 if len(text) % 2 == 0 else len(text) // 2 + 1]
     sorted_half_text = ''.join(sorted(half_text))
     return half_text == sorted_half_text
 
