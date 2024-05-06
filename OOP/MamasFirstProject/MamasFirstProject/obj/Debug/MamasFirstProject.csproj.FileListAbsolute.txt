@@ -1,0 +1,7 @@
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\MamasFirstProject\MamasFirstProject\bin\Debug\MamasFirstProject.exe.config
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\MamasFirstProject\MamasFirstProject\bin\Debug\MamasFirstProject.exe
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\MamasFirstProject\MamasFirstProject\bin\Debug\MamasFirstProject.pdb
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\MamasFirstProject\MamasFirstProject\obj\Debug\MamasFirstProject.csprojAssemblyReference.cache
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\MamasFirstProject\MamasFirstProject\obj\Debug\MamasFirstProject.csproj.CoreCompileInputs.cache
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\MamasFirstProject\MamasFirstProject\obj\Debug\MamasFirstProject.exe
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\MamasFirstProject\MamasFirstProject\obj\Debug\MamasFirstProject.pdb

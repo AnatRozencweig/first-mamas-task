@@ -17,7 +17,9 @@ namespace OOP
             abc.Append(4);
             abc.Prepend(0);
             abc.PrintLinkedList();
-            Console.WriteLine((abc.Pop()).ToString());
+            Console.WriteLine();
+            Console.WriteLine(abc.Unqueue().ToString());
+            Console.WriteLine();
             abc.PrintLinkedList();
 
         }
