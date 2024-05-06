@@ -10,14 +10,16 @@ namespace MamasFirstProject
     {
         static void Main(string[] args)
         {
-            Node c = new Node(3);
-            Node b = new Node(2, c);
-            Node a = new Node(1, b);
+            Node d = new Node(5);
+            Node c = new Node(9, d);
+            Node b = new Node(1, c);
+            Node a = new Node(2, b);
             LinkedList abc = new LinkedList(a);
-            //c.Next = a;
+            abc.PrintLinkedList();
             Console.WriteLine();
-            Console.WriteLine(abc.IsCircular().ToString());
+            abc.Sort();
             Console.WriteLine();
+            abc.PrintLinkedList();
         }
     }
 }

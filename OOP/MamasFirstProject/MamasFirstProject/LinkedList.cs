@@ -58,7 +58,7 @@ namespace MamasFirstProject
             Head = headNext;
             return FirstNodeValue;
         }
-        public IEnumerable<int> ToList()
+        public List<int> ConvertLinkedListToList()
         {
             Node currentNode = Head;
             List<int> allLinkedListValues = new List<int>();
@@ -67,6 +67,12 @@ namespace MamasFirstProject
                 allLinkedListValues.Add(currentNode.Value);
                 currentNode = currentNode.Next;
             }
+            allLinkedListValues.Add(currentNode.Value);
+            return allLinkedListValues;
+        }
+        public IEnumerable<int> ToList()
+        {
+            List<int> allLinkedListValues = ConvertLinkedListToList();
             IEnumerable<int> allLinkedListValuesIEnumerble = allLinkedListValues;
             return allLinkedListValuesIEnumerble;
         }
@@ -82,6 +88,20 @@ namespace MamasFirstProject
                 currentNode = currentNode.Next;
             }
             return false;
+        }
+        public void Sort()
+        {
+            List<int> allLinkedListValues = ConvertLinkedListToList();
+            allLinkedListValues.Sort();
+            Node newHead = new Node(allLinkedListValues[0]);
+            Node currentNode = newHead;
+            for (int i = 1; i < allLinkedListValues.Count; i++)
+            {
+                Node nextNode = new Node(allLinkedListValues[i]);
+                currentNode.Next = nextNode;
+                currentNode = nextNode;
+            }
+            Head = newHead;
         }
     }
 }
