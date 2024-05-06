@@ -103,5 +103,26 @@ namespace MamasFirstProject
             }
             Head = newHead;
         }
+        public Node LastNode()
+        {
+            Node currentNode = Head;
+            while (currentNode.Next.Next != null)
+            {
+                currentNode = currentNode.Next;
+            }
+            Node lastNode = currentNode.Next;
+            currentNode.Next = null;
+            return lastNode;
+        }
+        public Node GetMaxNode()
+        {
+            Sort();
+            return LastNode();
+        }
+        public Node GetMinNode()
+        {
+            Sort();
+            return Head;
+        }
     }
 }
