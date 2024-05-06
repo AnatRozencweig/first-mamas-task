@@ -10,6 +10,17 @@ namespace OOP
     {
         static void Main(string[] args)
         {
+            Node c = new Node(3);
+            Node b = new Node(2, c);
+            Node a = new Node(1, b);
+            LinkedList abc = new LinkedList(a);
+            abc.Append(4);
+            abc.Prepend(0);
+            abc.PrintLinkedList();
+            Console.WriteLine((abc.Pop()).ToString());
+            abc.PrintLinkedList();
+
         }
+
     }
 }
