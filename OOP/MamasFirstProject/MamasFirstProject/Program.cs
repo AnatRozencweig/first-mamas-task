@@ -9,7 +9,22 @@ namespace MamasFirstProject
         {
             NumericalExpression six = new NumericalExpression(3);
             
-            Console.WriteLine(six.SumLetters());
+            Console.WriteLine(SumLetters(3));
+        }
+        //The principle of polymorphism is manifested
+        public static int SumLetters(long number)
+        {
+            NumericalExpression numberToSum = new NumericalExpression(number);
+            string numberInWords = numberToSum.ToString();
+            string trim = numberInWords.Replace(" ", "");
+            return trim.Length;
+        }
+        public static int SumLetters(NumericalExpression number)
+        {
+            NumericalExpression numberToSum = new NumericalExpression(number.Number);
+            string numberInWords = numberToSum.ToString();
+            string trim = numberInWords.Replace(" ", "");
+            return trim.Length;
         }
     }
 }

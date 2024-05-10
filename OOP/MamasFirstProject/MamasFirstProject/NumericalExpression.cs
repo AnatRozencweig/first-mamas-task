@@ -68,11 +68,6 @@ namespace MamasFirstProject
         {
             return Number;
         }
-        public int SumLetters()
-        {
-            string numberInWords = ToString();
-            string trim = numberInWords.Replace(" ", "");
-            return trim.Length;
-        }
+
     }
 }
