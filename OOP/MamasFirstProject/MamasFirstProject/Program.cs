@@ -15,11 +15,11 @@ namespace MamasFirstProject
             Node b = new Node(1, c);
             Node a = new Node(2, b);
             LinkedList abc = new LinkedList(a);
-            //abc.PrintLinkedList();
+            abc.PrintLinkedList();
             Console.WriteLine();
-            Console.WriteLine(abc.GetMinNode().Value);
+            Console.WriteLine(abc.GetMaxNode().Value);
             Console.WriteLine();
-            //abc.PrintLinkedList();
+            abc.PrintLinkedList();
         }
     }
 }

@@ -10,9 +10,16 @@ namespace MamasFirstProject
     {
 
         public Node Head { get; set; }
+        public Node Tail { get; set; }
         public LinkedList(Node head)
         {
             Head = head;
+            Node currentNode = Head;
+            while (currentNode.Next != null)
+            {
+                currentNode = currentNode.Next;
+            }
+            Tail = currentNode;
         }
         public void PrintLinkedList()
         {
@@ -26,13 +33,10 @@ namespace MamasFirstProject
         }
         public void Append(int val)
         {
-            Node currentNode = Head;
-            Node lastNode = new Node(val);
-            while (currentNode.Next != null)
-            {
-                currentNode = currentNode.Next;
-            }
-            currentNode.Next = lastNode;
+            Node newNode = new Node(val);
+            Node lastNode = Tail;
+            lastNode.Next = newNode;
+            Tail = newNode;
         }
         public void Prepend(int val)
         {
@@ -48,6 +52,7 @@ namespace MamasFirstProject
             }
             int lastNodeValue = currentNode.Next.Value;
             currentNode.Next = null;
+            Tail = currentNode;
             return lastNodeValue;
         }
         public int Unqueue()
@@ -102,22 +107,12 @@ namespace MamasFirstProject
                 currentNode = nextNode;
             }
             Head = newHead;
-        }
-        public Node LastNode()
-        {
-            Node currentNode = Head;
-            while (currentNode.Next.Next != null)
-            {
-                currentNode = currentNode.Next;
-            }
-            Node lastNode = currentNode.Next;
-            currentNode.Next = null;
-            return lastNode;
+            Tail = currentNode;
         }
         public Node GetMaxNode()
         {
             Sort();
-            return LastNode();
+            return Tail;
         }
         public Node GetMinNode()
         {
