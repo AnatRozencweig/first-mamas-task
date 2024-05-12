@@ -1,0 +1,7 @@
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\2048\2048\2048\bin\Debug\2048.exe.config
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\2048\2048\2048\bin\Debug\2048.exe
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\2048\2048\2048\bin\Debug\2048.pdb
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\2048\2048\2048\obj\Debug\2048.csprojAssemblyReference.cache
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\2048\2048\2048\obj\Debug\2048.csproj.CoreCompileInputs.cache
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\2048\2048\2048\obj\Debug\2048.exe
+C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\2048\2048\2048\obj\Debug\2048.pdb

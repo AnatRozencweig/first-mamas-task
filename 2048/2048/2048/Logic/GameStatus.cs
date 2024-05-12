@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace _2048.Logic
 {
-    class GameStatus
+    enum GameStatus
     {
+        Idle,
+        Lose,
+        Win
     }
 }
