@@ -11,23 +11,27 @@ namespace _2048
         static void Main(string[] args)
         {
             Board b = new Board();
-            b.PlacesFirstTwoCells();
+            b.D
+            //b.PlacesFirstTwoCells();
             PrintBoard(b.Data);
+            Console.WriteLine("-----------------");
+            b.MoveUp();
+            PrintBoard(b.Data);
+
         }
         public static void PrintBoard(int[,] arr)
         {
-            int rowLength = arr.GetLength(0);
-            int colLength = arr.GetLength(1);
+            int xLen = arr.GetLength(0);
+            int yLen = arr.GetLength(1);
 
-            for (int i = 0; i < rowLength; i++)
+            for (int i = 0; i < yLen; i++)
             {
-                for (int j = 0; j < colLength; j++)
+                for (int j = 0; j < xLen; j++)
                 {
-                    Console.Write(string.Format("{0} ", arr[i, j]));
+                    Console.Write(string.Format("{0} ", arr[j, i]));
                 }
                 Console.Write(Environment.NewLine + Environment.NewLine);
             }
-            Console.ReadLine();
         }
     }
 }
