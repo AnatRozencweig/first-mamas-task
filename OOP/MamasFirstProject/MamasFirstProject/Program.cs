@@ -7,9 +7,9 @@ namespace MamasFirstProject
     {
         static void Main(string[] args)
         {
-            NumericalExpression six = new NumericalExpression(3);
+            NumericalExpression six = new NumericalExpression(999999999999);
             
-            Console.WriteLine(SumLetters(3));
+            Console.WriteLine(six.ToString());
         }
         //The principle of polymorphism is manifested
         public static int SumLetters(long number)

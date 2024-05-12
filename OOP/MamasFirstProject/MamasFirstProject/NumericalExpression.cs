@@ -18,49 +18,57 @@ namespace MamasFirstProject
         {
             Number = number;
         }
-        public string ConvertHundreds(long number)
+        public string ConvertNumberToWordsUntilTens(long number)
         {
-            string words = "";
-
-            if (number >= 100)
+            string numberInWords = "";
+            while(number > 0)
             {
-                words += Ones[number / 100] + " Hundred ";
-                number %= 100;
-            }
+                if (number >= 100)
+                {
+                    numberInWords += Ones[number / 100] + " Hundred ";
+                    number %= 100;
+                }
 
-            if (number >= 10 && number <= 19)
-            {
-                words += Teens[number % 10] + " ";
-            }
-            else
-            {
-                words += Tens[number / 10] + " ";
-                words += Ones[number % 10] + " ";
-            }
+                if (number >= 10 && number <= 19)
+                {
+                    numberInWords += Teens[number % 10] + " ";
+                    number = 0;
+                }
+                else
+                {
+                    numberInWords += Tens[number / 10] + " ";
+                    numberInWords += Ones[number % 10] + " ";
+                    number = 0;
+                }
 
-            return words;
+            }
+            return numberInWords;
         }
         public string ConvertNumberToWords()
         {
             long number = Number;
-            if (number == 0)
-                return "Zero";
-
-            string words = "";
-
-            for (int i = 0; number > 0; i++)
+            string numberInWords = "";
+            long numberChunck = 0;
+            int numberOfThousands = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(Convert.ToString(number).Length) / 3.0))-1;
+            for (int i = 0; i < numberOfThousands+1; i++)
             {
-                if (number % 1000 != 0)
-                    words = ConvertHundreds(number % 1000) + Thousands[i] + " " + words;
-
-                number /= 1000;
+                if(number < 3)
+                {
+                    numberChunck = number;
+                }
+                else
+                {
+                    numberChunck = number % 1000;
+                }
+                string chunkOfNumberInWords = ConvertNumberToWordsUntilTens(numberChunck);
+                numberInWords = " " + chunkOfNumberInWords + Thousands[i] + numberInWords;
+                number = number / 1000;
             }
-
-            return words.Trim();
+            return numberInWords;
         }
 
 
-        public override string ToString()
+    public override string ToString()
         {
             return ConvertNumberToWords();
         }
