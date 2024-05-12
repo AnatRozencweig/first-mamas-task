@@ -5,7 +5,7 @@ namespace _2048.Logic
 {
     class Board
     {
-        public int[,] Data { get; set; }
+        public int[,] Data { get; protected set; }
         public Board()
         {   
             Data = new int[4, 4];
@@ -69,13 +69,14 @@ namespace _2048.Logic
             }
             PlacesSpecificCell(x, y, value);
         }
-        public void MoveUp()
+        public void MoveNotZerosUp()
         {
+
             for (int x = 0; x < Data.GetLength(0); x++)
             {
                 for (int y = 0; y < Data.GetLength(1); y++)
                 {
-                    if(y == 0)
+                    if (y == 0)
                     {
                         continue;
                     }
@@ -83,7 +84,7 @@ namespace _2048.Logic
                     {
                         int i = x;
                         int j = y;
-                        while((j-1) >= 0 && Data[i, j-1] == 0)
+                        while ((j - 1) >= 0 && Data[i, j - 1] == 0)
                         {
                             Data[i, j - 1] = Data[i, j];
                             Data[i, j] = 0;
@@ -92,12 +93,14 @@ namespace _2048.Logic
                     }
                 }
             }
-
+        }
+        public void MergeDuplicatesUp()
+        {
             for (int x = 0; x < Data.GetLength(0); x++)
             {
                 for (int y = 0; y < Data.GetLength(1); y++)
                 {
-                    if (y-1 >= 0 && Data[x, y - 1] == Data[x, y])
+                    if (y - 1 >= 0 && Data[x, y - 1] == Data[x, y])
                     {
                         Data[x, y - 1] = Data[x, y] * 2;
                         Data[x, y] = 0;
@@ -105,9 +108,58 @@ namespace _2048.Logic
                 }
             }
         }
+        public void MoveUp()
+        {
+            MoveNotZerosUp();
+            MergeDuplicatesUp();
+            MoveNotZerosUp();
+
+        }
+        public void MoveNotZerosDown()
+        {
+
+            for (int x = 0; x < Data.GetLength(0); x++)
+            {
+                for (int y = Data.GetLength(1) - 1; y >= 0; y--)
+                {
+                    if (y == Data.GetLength(1) - 1)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        int i = x;
+                        int j = y;
+                        while ((j + 1) <= Data.GetLength(1) - 1 && Data[i, j + 1] == 0)
+                        {
+                            Data[i, j + 1] = Data[i, j];
+                            Data[i, j] = 0;
+                            j++;
+                        }
+                    }
+                }
+            }
+
+        }
+        public void MergeDuplicatesDown()
+        {
+            for (int x = 0; x < Data.GetLength(0); x++)
+            {
+                for (int y = Data.GetLength(1) - 1; y >= 0; y--)
+                {
+                    if (y + 1 <= Data.GetLength(1) - 1 && Data[x, y + 1] == Data[x, y])
+                    {
+                        Data[x, y + 1] = Data[x, y] * 2;
+                        Data[x, y] = 0;
+                    }
+                }
+            }
+        }
         public void MoveDown()
         {
-            Console.WriteLine();
+            MoveNotZerosDown();
+            MergeDuplicatesDown();
+            MoveNotZerosDown();
         }
         public void MoveRight()
         {
