@@ -207,6 +207,52 @@ namespace _2048.Logic
             MoveNotZerosLeft();
 
         }
+        public void MoveNotZerosRight()
+        {
+
+            for (int y = 0; y < Data.GetLength(1); y++)
+            {
+                for (int x = Data.GetLength(0)-1; x >= 0; x--)
+                {
+                    if (x == Data.GetLength(0) -1)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        int i = y;
+                        int j = x;
+                        while ((j + 1) <= Data.GetLength(1) - 1 && Data[j + 1, i] == 0)
+                        {
+                            Data[j + 1, i] = Data[j, i];
+                            Data[j, i] = 0;
+                            j++;
+                        }
+                    }
+                }
+            }
+        }
+        public void MergeDuplicatesRight()
+        {
+            for (int y = 0; y < Data.GetLength(1); y++)
+            {
+                for (int x = Data.GetLength(0) - 1; x >= 0; x--)
+                {
+                    if (x + 1 <= Data.GetLength(1) - 1 && Data[x + 1, y] == Data[x, y])
+                    {
+                        Data[x + 1, y] = Data[x, y] * 2;
+                        Data[x, y] = 0;
+                    }
+                }
+            }
+        }
+        public void MoveRight()
+        {
+            MoveNotZerosRight();
+            MergeDuplicatesRight();
+            MoveNotZerosRight();
+
+        }
         public void MoveByDirection(Direction direction)
         {
             if (direction == Direction.Up)
