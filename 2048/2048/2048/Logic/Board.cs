@@ -161,15 +161,52 @@ namespace _2048.Logic
             MergeDuplicatesDown();
             MoveNotZerosDown();
         }
-        public void MoveRight()
+        public void MoveNotZerosLeft()
         {
-            Console.WriteLine();
+
+            for (int y = 0; y < Data.GetLength(1); y++)
+            {
+                for (int x = 0; x < Data.GetLength(0); x++)
+                {
+                    if (x == 0)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        int i = y;
+                        int j = x;
+                        while ((j - 1) >= 0 && Data[j - 1, i] == 0)
+                        {
+                            Data[j - 1,i] = Data[j,i];
+                            Data[j,i] = 0;
+                            j--;
+                        }
+                    }
+                }
+            }
+        }
+        public void MergeDuplicatesLeft()
+        {
+            for (int y = 0; y < Data.GetLength(1); y++)
+            {
+                for (int x = 0; x < Data.GetLength(0); x++)
+                {
+                    if (x - 1 >= 0 && Data[x - 1, y] == Data[x, y])
+                    {
+                        Data[x -1, y] = Data[x, y] * 2;
+                        Data[x, y] = 0;
+                    }
+                }
+            }
         }
         public void MoveLeft()
         {
-            Console.WriteLine();
-        }
+            MoveNotZerosLeft();
+            MergeDuplicatesLeft();
+            MoveNotZerosLeft();
 
+        }
         public void MoveByDirection(Direction direction)
         {
             if (direction == Direction.Up)
@@ -180,13 +217,13 @@ namespace _2048.Logic
             {
                 MoveDown();
             }
-            else if (direction == Direction.Right)
-            {
-                MoveRight();
-            }
             else if (direction == Direction.Left)
             {
                 MoveLeft();
+            }
+            else if (direction == Direction.Left)
+            {
+                //MoveLeft();
             }
 
         }

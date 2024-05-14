@@ -11,14 +11,19 @@ namespace _2048
         static void Main(string[] args)
         {
             Board b = new Board();
-            b.PlacesSpecificCell(0, 0, 4);
-            b.PlacesSpecificCell(0, 1, 2);
             b.PlacesSpecificCell(0, 3, 2);
+            b.PlacesSpecificCell(2, 3, 2);
+            b.PlacesSpecificCell(3, 3, 8);
+            b.PlacesSpecificCell(0, 1, 2);
+            b.PlacesSpecificCell(2, 1, 4);
+            b.PlacesSpecificCell(3, 1, 8);
+
+
 
             //b.PlacesFirstTwoCells();
             PrintBoard(b.Data);
             Console.WriteLine("-----------------");
-            b.MoveDown();
+            b.MoveLeft();
             PrintBoard(b.Data);
             Console.WriteLine("-----------------");
            
