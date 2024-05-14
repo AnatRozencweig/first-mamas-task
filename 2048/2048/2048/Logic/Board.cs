@@ -6,9 +6,11 @@ namespace _2048.Logic
     class Board
     {
         public int[,] Data { get; protected set; }
+        public int MovePoints { get; protected set; }
         public Board()
         {   
             Data = new int[4, 4];
+            MovePoints = 0;
         }
         public void PlacesSpecificCell(int x, int y, int value)
         {
@@ -51,15 +53,11 @@ namespace _2048.Logic
             }
             throw new InvalidOperationException("It looks like the index is not in range");
         }
-        public void PlacesFirstTwoCells()
+        public void PlacesCellWithTwoOrFour()
         {
             int x = ChooseRandomIndex();
             int y = ChooseRandomIndex();
             int value = ChooseTwoOrFour();
-            PlacesSpecificCell(x, y, value);
-            x = ChooseRandomIndex();
-            y = ChooseRandomIndex();
-            value = ChooseTwoOrFour();
             bool isIndexEmpty = IsIndexEmpty(x, y);
             while (!isIndexEmpty)
             {
@@ -68,6 +66,15 @@ namespace _2048.Logic
                 isIndexEmpty = IsIndexEmpty(x, y);
             }
             PlacesSpecificCell(x, y, value);
+        }
+        public void PlacesFirstTwoCells()
+        {
+            PlacesCellWithTwoOrFour();
+            PlacesCellWithTwoOrFour();
+        }
+        public void UpdateMovePoints(int points)
+        {
+            MovePoints += points;
         }
         public void MoveNotZerosUp()
         {
@@ -103,6 +110,7 @@ namespace _2048.Logic
                     if (y - 1 >= 0 && Data[x, y - 1] == Data[x, y])
                     {
                         Data[x, y - 1] = Data[x, y] * 2;
+                        UpdateMovePoints(Data[x, y] * 2);
                         Data[x, y] = 0;
                     }
                 }
@@ -150,6 +158,7 @@ namespace _2048.Logic
                     if (y + 1 <= Data.GetLength(1) - 1 && Data[x, y + 1] == Data[x, y])
                     {
                         Data[x, y + 1] = Data[x, y] * 2;
+                        UpdateMovePoints(Data[x, y] * 2);
                         Data[x, y] = 0;
                     }
                 }
@@ -195,6 +204,7 @@ namespace _2048.Logic
                     if (x - 1 >= 0 && Data[x - 1, y] == Data[x, y])
                     {
                         Data[x -1, y] = Data[x, y] * 2;
+                        UpdateMovePoints(Data[x, y] * 2);
                         Data[x, y] = 0;
                     }
                 }
@@ -241,6 +251,7 @@ namespace _2048.Logic
                     if (x + 1 <= Data.GetLength(1) - 1 && Data[x + 1, y] == Data[x, y])
                     {
                         Data[x + 1, y] = Data[x, y] * 2;
+                        UpdateMovePoints(Data[x, y] * 2);
                         Data[x, y] = 0;
                     }
                 }
@@ -269,9 +280,16 @@ namespace _2048.Logic
             }
             else if (direction == Direction.Left)
             {
-                //MoveLeft();
+                MoveLeft();
             }
-
+        }
+        public int Move(Direction direction)
+        {
+            MoveByDirection(direction);
+            PlacesCellWithTwoOrFour();
+            int pointThisMove = MovePoints;
+            MovePoints = 0;
+            return pointThisMove;
         }
 
     }
