@@ -16,7 +16,7 @@ namespace _2048
             b.PlacesSpecificCell(3, 3, 8);
             b.PlacesSpecificCell(0, 1, 2);
             b.PlacesSpecificCell(2, 1, 2);
-            b.PlacesSpecificCell(3, 1, 2);
+            b.PlacesSpecificCell(3, 1, 4);
 
 
 
