@@ -16,7 +16,14 @@ namespace _2048.Logic
             GameBoard = board;
             Points = 0;
         }
+        public void Move(Direction direction)
+        {
+            if(GameStatus != GameStatus.Lose)
+            {
+                GameBoard.Move(direction);
 
+            }
+        }
 
     }
 }

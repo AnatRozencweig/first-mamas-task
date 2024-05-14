@@ -291,6 +291,45 @@ namespace _2048.Logic
             MovePoints = 0;
             return pointThisMove;
         }
+        public bool IsBoardFull()
+        {
+            for (int i = 0; i < Data.GetLength(0); i++)
+            {
+                for (int j = 0; j < Data.GetLength(1); j++)
+                {
+                    if(Data[i,j] == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        public bool IsCell2048Exists()
+        {
+            for (int i = 0; i < Data.GetLength(0); i++)
+            {
+                for (int j = 0; j < Data.GetLength(1); j++)
+                {
+                    if (Data[i, j] == 2048)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        public bool IsGameOver()
+        {
+            if (IsBoardFull() || IsCell2048Exists())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }
