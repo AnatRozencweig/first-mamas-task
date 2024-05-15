@@ -1,5 +1,6 @@
 ﻿using _2048.Logic;
 using System;
+using System.Collections.Generic; 
 
 namespace _2048.UI
 {
@@ -30,8 +31,39 @@ namespace _2048.UI
         }
         public void PrintScore()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(0, 2);
             Console.Write(string.Format("SCORE: {0}", Game.Points.ToString()));
+        }
+        public ConsoleColor MatchNumberColor(int number)
+        {
+            switch (number)
+            {
+                case 2:
+                    return ConsoleColor.Blue;
+                case 4:
+                    return ConsoleColor.Green;
+                case 8:
+                    return ConsoleColor.Cyan;
+                case 16:
+                    return ConsoleColor.Red;
+                case 32:
+                    return ConsoleColor.Magenta;
+                case 64:
+                    return ConsoleColor.Yellow;
+                case 128:
+                    return ConsoleColor.DarkBlue;
+                case 256:
+                    return ConsoleColor.DarkGreen;
+                case 512:
+                    return ConsoleColor.DarkRed;
+                case 1024:
+                    return ConsoleColor.DarkMagenta;
+                case 2048:
+                    return ConsoleColor.DarkYellow;
+                default:
+                    throw new InvalidOperationException("this number is not in the options"); ;
+            }
         }
         public void PrintBoard()
         {
@@ -44,10 +76,12 @@ namespace _2048.UI
                 {
                     if(Game.GameBoard.Data[j, i] == 0)
                     {
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.Write(".        ");
                     }
                     else
                     {
+                        Console.ForegroundColor = MatchNumberColor(Game.GameBoard.Data[j,i]);
                         Console.Write(string.Format("{0}        ", Game.GameBoard.Data[j, i]));
                     }
                 }
@@ -77,10 +111,12 @@ namespace _2048.UI
         }
         public void LoseScreen()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("You lose");
         }
         public void WinScreen()
         {
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("You win");
         }
     }
