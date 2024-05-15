@@ -24,7 +24,10 @@ namespace _2048
             {
                 screen.LoseScreen();
             }
-            screen.WinScreen();
+            else
+            {
+                screen.WinScreen();
+            }
         }
     }
 }

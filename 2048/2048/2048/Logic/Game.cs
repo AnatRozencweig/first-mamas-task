@@ -9,6 +9,7 @@ namespace _2048.Logic
         public Game(Board board)
         {
             GameBoard = board;
+            GameStatus = GameStatus.Idle;
             Points = 0;
         }
         public void UpdateStatus()

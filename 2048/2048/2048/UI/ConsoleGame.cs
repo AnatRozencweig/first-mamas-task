@@ -42,7 +42,14 @@ namespace _2048.UI
             {
                 for (int j = 0; j < xLen; j++)
                 {
-                    Console.Write(string.Format("{0}        ", Game.GameBoard.Data[j, i]));
+                    if(Game.GameBoard.Data[j, i] == 0)
+                    {
+                        Console.Write(".        ");
+                    }
+                    else
+                    {
+                        Console.Write(string.Format("{0}        ", Game.GameBoard.Data[j, i]));
+                    }
                 }
                 Console.Write("\n \n \n");
             }
@@ -51,6 +58,22 @@ namespace _2048.UI
         {
             PrintScore();
             PrintBoard();
+        }
+        public string QuitOrStartScreen()
+        {
+            Console.WriteLine("To start a new game enter s \n" +
+                "To quit the game enter q");
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
+            switch (char.ToUpper(keyInfo.KeyChar))
+            {
+                case 'Q':
+                    return "quit";
+                case 'S':
+                    return "start";
+                default:
+                    throw new InvalidOperationException("You press invalid key"); ;
+            }
         }
         public void LoseScreen()
         {
