@@ -1,32 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using _2048.Logic;
+using _2048.UI;
+using System;
+
 namespace _2048
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Board b = new Board();
-            b.PlacesSpecificCell(0, 3, 2);
-            b.PlacesSpecificCell(2, 3, 2);
-            b.PlacesSpecificCell(3, 3, 8);
-            b.PlacesSpecificCell(0, 1, 2);
-            b.PlacesSpecificCell(2, 1, 2);
-            b.PlacesSpecificCell(3, 1, 4);
-
-
-
-            //b.PlacesFirstTwoCells();
-            PrintBoard(b.Data);
-            Console.WriteLine("-----------------");
-            b.MoveRight();
-            PrintBoard(b.Data);
-            Console.WriteLine("-----------------");
-           
+            Board gameBoard = new Board();
+            Game game = new Game(gameBoard);
+            ConsoleGame screen = new ConsoleGame(game);
+            game.GameBoard.PlacesFirstTwoCells();
+            while (true)
+            {
+                screen.PrintBoard();
+                Direction direction = screen.GetDirection();
+                game.Move(direction);
+                Console.Clear();
+            }
         }
     }
 }

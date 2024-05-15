@@ -5,10 +5,10 @@ namespace _2048.UI
 {
     class ConsoleGame
     {
-        public Board GameBoard { get; set; }
-        public ConsoleGame(Board board)
+        public Game Game { get; set; }
+        public ConsoleGame(Game game)
         {
-            GameBoard = board;
+            Game = game;
         }
         public Direction GetDirection()
         {
@@ -30,14 +30,14 @@ namespace _2048.UI
         }
         public void PrintBoard()
         {
-            int xLen = GameBoard.Data.GetLength(0);
-            int yLen = GameBoard.Data.GetLength(1);
+            int xLen = Game.GameBoard.Data.GetLength(0);
+            int yLen = Game.GameBoard.Data.GetLength(1);
 
             for (int i = 0; i < yLen; i++)
             {
                 for (int j = 0; j < xLen; j++)
                 {
-                    Console.Write(string.Format("{0} ", GameBoard.Data[j, i]));
+                    Console.Write(string.Format("{0} ", Game.GameBoard.Data[j, i]));
                 }
                 Console.Write(Environment.NewLine + Environment.NewLine);
             }
