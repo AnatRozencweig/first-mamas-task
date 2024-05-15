@@ -13,12 +13,21 @@ namespace _2048
             Game game = new Game(gameBoard);
             ConsoleGame screen = new ConsoleGame(game);
             game.GameBoard.PlacesFirstTwoCells();
-            while (true)
+            while (game.GameStatus == GameStatus.Idle)
             {
                 screen.PrintBoard();
                 Direction direction = screen.GetDirection();
                 game.Move(direction);
+                game.UpdateStatus();
                 Console.Clear();
+            }
+            if (game.GameStatus == GameStatus.Lose)
+            {
+                screen.LoseScreen();
+            }
+            else
+            {
+                screen.WinScreen();
             }
         }
     }

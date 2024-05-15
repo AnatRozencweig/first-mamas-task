@@ -37,10 +37,18 @@ namespace _2048.UI
             {
                 for (int j = 0; j < xLen; j++)
                 {
-                    Console.Write(string.Format("{0} ", Game.GameBoard.Data[j, i]));
+                    Console.Write(string.Format("{0}    ", Game.GameBoard.Data[j, i]));
                 }
-                Console.Write(Environment.NewLine + Environment.NewLine);
+                Console.Write("\n \n");
             }
+        }
+        public void LoseScreen()
+        {
+            Console.WriteLine("You lose");
+        }
+        public void WinScreen()
+        {
+            Console.WriteLine("You win");
         }
     }
 }

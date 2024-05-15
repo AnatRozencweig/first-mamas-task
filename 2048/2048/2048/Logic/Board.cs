@@ -278,9 +278,9 @@ namespace _2048.Logic
             {
                 MoveLeft();
             }
-            else if (direction == Direction.Left)
+            else if (direction == Direction.Right)
             {
-                MoveLeft();
+                MoveRight();
             }
         }
         public int Move(Direction direction)
