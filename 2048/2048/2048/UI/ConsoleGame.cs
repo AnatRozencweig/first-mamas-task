@@ -30,7 +30,17 @@ namespace _2048.UI
         }
         public void PrintBoard()
         {
+            int xLen = GameBoard.Data.GetLength(0);
+            int yLen = GameBoard.Data.GetLength(1);
 
+            for (int i = 0; i < yLen; i++)
+            {
+                for (int j = 0; j < xLen; j++)
+                {
+                    Console.Write(string.Format("{0} ", GameBoard.Data[j, i]));
+                }
+                Console.Write(Environment.NewLine + Environment.NewLine);
+            }
         }
     }
 }

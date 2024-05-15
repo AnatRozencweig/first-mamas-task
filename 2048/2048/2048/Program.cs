@@ -28,19 +28,5 @@ namespace _2048
             Console.WriteLine("-----------------");
            
         }
-        public static void PrintBoard(int[,] arr)
-        {
-            int xLen = arr.GetLength(0);
-            int yLen = arr.GetLength(1);
-
-            for (int i = 0; i < yLen; i++)
-            {
-                for (int j = 0; j < xLen; j++)
-                {
-                    Console.Write(string.Format("{0} ", arr[j, i]));
-                }
-                Console.Write(Environment.NewLine + Environment.NewLine);
-            }
-        }
     }
 }
