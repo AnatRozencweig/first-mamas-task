@@ -28,19 +28,29 @@ namespace _2048.UI
                     throw new InvalidOperationException("You press invalid key"); ;
             }
         }
+        public void PrintScore()
+        {
+            Console.SetCursorPosition(0, 2);
+            Console.Write(string.Format("SCORE: {0}", Game.Points.ToString()));
+        }
         public void PrintBoard()
         {
             int xLen = Game.GameBoard.Data.GetLength(0);
             int yLen = Game.GameBoard.Data.GetLength(1);
-
+            Console.SetCursorPosition(0, 10);
             for (int i = 0; i < yLen; i++)
             {
                 for (int j = 0; j < xLen; j++)
                 {
-                    Console.Write(string.Format("{0}    ", Game.GameBoard.Data[j, i]));
+                    Console.Write(string.Format("{0}        ", Game.GameBoard.Data[j, i]));
                 }
-                Console.Write("\n \n");
+                Console.Write("\n \n \n");
             }
+        }
+        public void ShowGameScreen()
+        {
+            PrintScore();
+            PrintBoard();
         }
         public void LoseScreen()
         {

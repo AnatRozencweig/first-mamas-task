@@ -30,9 +30,9 @@ namespace _2048.Logic
         {
             if(GameStatus != GameStatus.Lose)
             {
-                GameBoard.Move(direction);
+                int pointsThisMove = GameBoard.Move(direction);
                 UpdateStatus();
-                Points += GameBoard.MovePoints;
+                Points += pointsThisMove;
             }
         }
 

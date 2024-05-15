@@ -6,7 +6,7 @@ namespace _2048.Logic
     class Board
     {
         public int[,] Data { get; protected set; }
-        public int MovePoints { get; protected set; }
+        public int MovePoints { get; set; }
         public Board()
         {   
             Data = new int[4, 4];

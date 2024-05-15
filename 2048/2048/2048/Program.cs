@@ -15,20 +15,16 @@ namespace _2048
             game.GameBoard.PlacesFirstTwoCells();
             while (game.GameStatus == GameStatus.Idle)
             {
-                screen.PrintBoard();
+                screen.ShowGameScreen();
                 Direction direction = screen.GetDirection();
                 game.Move(direction);
                 game.UpdateStatus();
-                Console.Clear();
             }
             if (game.GameStatus == GameStatus.Lose)
             {
                 screen.LoseScreen();
             }
-            else
-            {
-                screen.WinScreen();
-            }
+            screen.WinScreen();
         }
     }
 }
