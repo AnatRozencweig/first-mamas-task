@@ -1,7 +1,0 @@
-C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\OOP\OOP\bin\Debug\OOP.exe.config
-C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\OOP\OOP\bin\Debug\OOP.exe
-C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\OOP\OOP\bin\Debug\OOP.pdb
-C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\OOP\OOP\obj\Debug\OOP.csprojAssemblyReference.cache
-C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\OOP\OOP\obj\Debug\OOP.csproj.CoreCompileInputs.cache
-C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\OOP\OOP\obj\Debug\OOP.exe
-C:\Users\97254\OneDrive\מסמכים\FirstMamasTask\OOP\OOP\OOP\obj\Debug\OOP.pdb
